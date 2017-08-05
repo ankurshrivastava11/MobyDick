@@ -31,12 +31,12 @@ Run the Project:
   - Right click on the file and choose Coverage as - jUnit Test.
   - After completion, check the result in the coverage tab.
   
-  
+
  jUnit:
- <p><img src="/images/jUnit.png" width="350"/></p>
+ <img src="/WebContent/images/jUnit.png"> </img>
  
  
  coverage:
- <p><img src="/images/coverage.png" width="350"/></p>
- 
+ <img src="/WebContent/images/coverage.png"/> </img>
+
  
