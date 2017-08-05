@@ -1,16 +1,9 @@
-  /**
- * 
- */
 package occurencetest;
 
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.occurence.findOccurence;
 

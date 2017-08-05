@@ -1,42 +1,57 @@
 package org.occurence;
 
-import java.util.*;
-import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
+/**
+ * @author ankurshrivastava
+ *
+ */
 public class findOccurence {
 
-	public findOccurence() {
-		// TODO Auto-generated constructor stub
+	/**
+	 * takes name of the file as string in the argument.
+	 * 
+	 * @param str
+	 * @return weather the file was found by the scanner class or not.
+	 */
+	public String fileNotfound(String str) {
+		// TODO Auto-generated method stub
+		String message = "";
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File(str));
+		} catch (FileNotFoundException s) {
+
+			System.out.println("File does Not Exist Please Try Again: ");
+			message = "File Not found";
+			return message;
+		}
+		return "File found";
 	}
 
 	/**
-	 * @return
+	 * @return the size of the list containing occurrences of words.
 	 * @throws FileNotFoundException
 	 */
 	public int sizeofMap() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		HashMap<String, Integer> hmap = findfrequentwords();
-		ArrayList map = entriesSortedByValues(hmap);
-		int lenthofmap = 0;
-		for (int i = 0; i < 100; i++) {
-			System.out.println(map.get(i));
-			lenthofmap++;
-		}
-		return lenthofmap;
+		ArrayList<Entry<String, Integer>> list = findfrequentwords();
+		return list.size();
 
 	}
 
+	/**
+	 * @return the list containing all of the stop words.
+	 * @throws FileNotFoundException
+	 */
 	public ArrayList<String> setstopwords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		Scanner sc = null;
@@ -63,7 +78,12 @@ public class findOccurence {
 
 	}
 
-	public HashMap<String, Integer> findfrequentwords() throws FileNotFoundException {
+	/**
+	 * @return the list containing 100 most frequent words with the count of
+	 *         their occurrences.
+	 * @throws FileNotFoundException
+	 */
+	public ArrayList<Entry<String, Integer>> findfrequentwords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		ArrayList<String> stopwords = setstopwords();
 		HashMap<String, Integer> hmap = new HashMap<>();
@@ -89,13 +109,23 @@ public class findOccurence {
 				}
 			}
 		}
-		ArrayList map = entriesSortedByValues(hmap);
+		ArrayList<Entry<String, Integer>> list = entriesSortedByValues(hmap);
+		ArrayList<Entry<String, Integer>> result = new ArrayList<Entry<String, Integer>>();
+
 		for (int i = 0; i < 100; i++) {
-			System.out.println(map.get(i));
+			System.out.println(list.get(i));
+			result.add(list.get(i));
 		}
-		return hmap;
+		return result;
 	}
 
+	/**
+	 * takes a Hashmap in the argument
+	 * 
+	 * @param map
+	 * @return the list of words with the occurrences sorted by the value in
+	 *         HashMap.
+	 */
 	static <K, V extends Comparable<? super V>> ArrayList<Entry<K, V>> entriesSortedByValues(Map<K, V> map) {
 		ArrayList<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map.entrySet());
 		Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
@@ -106,21 +136,6 @@ public class findOccurence {
 		});
 
 		return sortedEntries;
-	}
-
-	public String fileNotfound(String str) {
-		// TODO Auto-generated method stub
-		String message = "";
-		Scanner sc = null;
-		try {
-			sc = new Scanner(new File(str));
-		} catch (FileNotFoundException s) {
-
-			System.out.println("File does Not Exist Please Try Again: ");
-			message = "File Not found";
-			return message;
-		}
-		return "File found";
 	}
 
 }
