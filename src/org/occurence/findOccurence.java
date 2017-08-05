@@ -26,26 +26,6 @@ public class findOccurence {
 	 */
 	public int sizeofMap() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-//		ArrayList<String> stopwords = setstopwords();
-//		HashMap<String, Integer> hmap = new HashMap<>();
-//		File file = new File("mobydick.txt");
-//		Scanner sc = new Scanner(file);
-//		StringBuilder sb = new StringBuilder();
-//		while (sc.hasNext()) {
-//			String str = sc.next().replaceAll("[^\\w\\s]", "");
-//			sb.append(str + " ");
-//		}
-//		String[] wordList = sb.toString().trim().split(" ");
-//		for (int i = 0; i < wordList.length; i++) {
-//			if (!stopwords.contains(wordList[i])) {
-//				if (hmap.containsKey(wordList[i])) {
-//					int value = hmap.get(wordList[i]);
-//					hmap.put(wordList[i], value + 1);
-//				} else {
-//					hmap.put(wordList[i], 1);
-//				}
-//			}
-//		}
 		HashMap<String, Integer> hmap = findfrequentwords();
 		ArrayList map = entriesSortedByValues(hmap);
 		int lenthofmap = 0;
@@ -117,9 +97,7 @@ public class findOccurence {
 	}
 
 	static <K, V extends Comparable<? super V>> ArrayList<Entry<K, V>> entriesSortedByValues(Map<K, V> map) {
-
 		ArrayList<Entry<K, V>> sortedEntries = new ArrayList<Entry<K, V>>(map.entrySet());
-
 		Collections.sort(sortedEntries, new Comparator<Entry<K, V>>() {
 			@Override
 			public int compare(Entry<K, V> e1, Entry<K, V> e2) {
@@ -130,9 +108,19 @@ public class findOccurence {
 		return sortedEntries;
 	}
 
-	public String fileNotfound(String str1) {
+	public String fileNotfound(String str) {
 		// TODO Auto-generated method stub
-		return null;
+		String message = "";
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File(str));
+		} catch (FileNotFoundException s) {
+
+			System.out.println("File does Not Exist Please Try Again: ");
+			message = "File Not found";
+			return message;
+		}
+		return "File found";
 	}
 
 }
