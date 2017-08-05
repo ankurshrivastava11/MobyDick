@@ -42,6 +42,10 @@ EclEmma Java Code Coverage 3.0.0 <br />
  
  coverage:
  <img src="/WebContent/images/coverage.png"/> </img>
+
+ <b>License:</b>
+ ankurshrivastava11/MobyDick is licensed under the
+ MIT License
  
  <b>Author:</b>
  <a href = "https://github.com/ankurshrivastava11"/>Ankur Shrivastava
