@@ -11,7 +11,7 @@ import org.occurence.FindOccurenceWords;
 public class TestFindOccurence {
 
 	@Test
-	public void displayFrequentwords() throws FileNotFoundException{
+	public void displayFrequentWords() throws FileNotFoundException{
 		FindOccurenceWords fo = new FindOccurenceWords();
 		ArrayList<String> list = fo.diplayFrequentWords();
 		assertEquals(100,list.size());
@@ -19,7 +19,7 @@ public class TestFindOccurence {
 	}
 	
 	@Test
-	public void filenotfound() throws FileNotFoundException {
+	public void fileNotFound() throws FileNotFoundException {
 		
 		FindOccurenceWords fo = new FindOccurenceWords();
 		String str1 = "mobydick.txt";
@@ -31,7 +31,7 @@ public class TestFindOccurence {
 	}
 	
 	@Test
-	public void nofilefound() throws FileNotFoundException {
+	public void noFileFound() throws FileNotFoundException {
 		
 		FindOccurenceWords fo = new FindOccurenceWords();
 		String str1 = "mobydick1.txt";
@@ -52,7 +52,7 @@ public class TestFindOccurence {
 	}
 
 	@Test
-	public void mapsize() throws FileNotFoundException {
+	public void mapSize() throws FileNotFoundException {
 		
 		FindOccurenceWords fo = new FindOccurenceWords();
 		int length = fo.sizeOfMap();
@@ -60,7 +60,7 @@ public class TestFindOccurence {
 	}
 	
 	@Test
-	public void frequentwords() throws FileNotFoundException {
+	public void frequentWords() throws FileNotFoundException {
 		
 		FindOccurenceWords fo = new FindOccurenceWords();
 		assertNotEquals(null,fo.findFrequentWords());
