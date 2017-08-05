@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -25,21 +26,23 @@ public class testoccurence {
 	{
 		findOccurence fo = new findOccurence();
 		ArrayList<String> list = fo.setstopwords();
-		assertNotEquals(list, null);
+		assertNotEquals(null, list);
 	}
 
 	@Test
 	public void mapsize() throws FileNotFoundException {
 		
 		findOccurence fo = new findOccurence();
-		assertEquals(100,fo.sizeofMap());
+		int length = fo.sizeofMap();
+		assertEquals(100,length);
 	}
 	
 	@Test
 	public void frequentwords() throws FileNotFoundException {
 		
 		findOccurence fo = new findOccurence();
-		assertNotEquals(fo.findfrequentwords(),null);
+		HashMap<String, Integer> hmap = fo.findfrequentwords();
+		assertNotEquals(null,fo.findfrequentwords());
 	}
 	
 
