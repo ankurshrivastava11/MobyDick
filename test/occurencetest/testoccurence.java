@@ -26,6 +26,19 @@ public class testoccurence {
 	}
 	
 	@Test
+	public void nofilefound() throws FileNotFoundException {
+		
+		findOccurence fo = new findOccurence();
+		String str1 = "mobydick1.txt";
+		String str2 = "stop-words1.txt";
+		assertEquals("File Not found", fo.fileNotfound(str1));
+		assertNotEquals("File found", fo.fileNotfound(str1));
+		assertEquals("File Not found", fo.fileNotfound(str2));
+		assertNotEquals("File found", fo.fileNotfound(str2));
+	}
+	
+	
+	@Test
 	public void setStopWordsList() throws FileNotFoundException
 	{
 		findOccurence fo = new findOccurence();
