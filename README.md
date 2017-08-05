@@ -7,11 +7,12 @@ The tests find out the number of occurrences of 100 most frequent words in mobyd
 which are the list of words in stop-words.txt.
 
 Specifications:
-Java - 1.8.0_101
-jdk - 1.8.0_101
-Eclipse Neon
-jUnit
-EclEmma Java Code Coverage 3.0.0
+
+Java - 1.8.0_101 <br />
+jdk - 1.8.0_101 <br />
+Eclipse Neon <br />
+jUnit <br />
+EclEmma Java Code Coverage 3.0.0 <br />
 
 Project:
 
