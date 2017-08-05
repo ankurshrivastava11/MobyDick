@@ -114,7 +114,7 @@ public class findOccurence {
 		ArrayList<Entry<String, Integer>> result = new ArrayList<Entry<String, Integer>>();
 
 		for (int i = 0; i < 100; i++) {
-			System.out.println(list.get(i));
+			// System.out.println(list.get(i));
 			result.add(list.get(i));
 		}
 		return result;
@@ -137,6 +137,11 @@ public class findOccurence {
 		});
 
 		return sortedEntries;
+	}
+
+	public ArrayList<String> diplayFrequentwords() throws FileNotFoundException {
+		return null;
+
 	}
 
 }

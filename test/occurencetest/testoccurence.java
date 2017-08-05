@@ -61,5 +61,13 @@ public class testoccurence {
 		assertNotEquals(null,fo.findfrequentwords());
 	}
 	
+	@Test
+	public void displayFrequentwords() throws FileNotFoundException{
+		findOccurence fo = new findOccurence();
+		ArrayList<String> list = fo.diplayFrequentwords();
+		assertEquals(100,list.size());
+		assertNotEquals(null, list);
+	}
+	
 
 }
