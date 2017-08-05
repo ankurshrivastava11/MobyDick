@@ -3,10 +3,12 @@ package org.occurence;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class findOccurence {
-
+	
+	ArrayList<String> list;
 	public findOccurence() {
 		// TODO Auto-generated constructor stub
 	}
@@ -15,10 +17,9 @@ public class findOccurence {
 		// TODO Auto-generated method stub
 		File file = new File("mobydick.txt");
 		System.out.println("here");
+		System.out.println(list);
 		Scanner sc = new Scanner(file);
-		Scanner sc1 = new Scanner(new File("stop-words.txt"));
-		ArrayList<String> list = new ArrayList<>();
-		ArrayList<String> list1 = new ArrayList<>();
+		ArrayList<String> list = setstopwords();
 		StringBuilder sb = new StringBuilder();
 //		while(sc.hasNext()){
 //			 System.out.println();
@@ -55,11 +56,16 @@ public class findOccurence {
 		{
 			if(stopwords[i].length() != 1) list.add(stopwords[i]);
 		}
-		
+		//for(String str1: list) System.out.println(str1);
 		return list;
 		
 		
 		
+	}
+
+	public HashMap<String,Integer> findfrequentwords() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

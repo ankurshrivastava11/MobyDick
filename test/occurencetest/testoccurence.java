@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.occurence.findOccurence;
 
@@ -18,21 +19,28 @@ import org.occurence.findOccurence;
  */
 public class testoccurence {
 	
+	
 	@Test
 	public void setStopWordsList() throws FileNotFoundException
 	{
 		findOccurence fo = new findOccurence();
 		ArrayList<String> list = fo.setstopwords();
-		assertEquals(list, fo.setstopwords());
+		assertNotEquals(list, null);
 	}
 
 	@Test
-	public void test() throws FileNotFoundException {
+	public void mapsize() throws FileNotFoundException {
 		
 		findOccurence fo = new findOccurence();
 		assertEquals(100,fo.sizeofMap());
-		
-
 	}
+	
+	@Test
+	public void frequentwords() throws FileNotFoundException {
+		
+		findOccurence fo = new findOccurence();
+		assertNotEquals(fo.findfrequentwords(),null);
+	}
+	
 
 }
