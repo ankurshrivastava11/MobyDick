@@ -20,6 +20,17 @@ import org.occurence.findOccurence;
  */
 public class testoccurence {
 	
+	@Test
+	public void filenotfound() throws FileNotFoundException {
+		
+		findOccurence fo = new findOccurence();
+		String str1 = "mobydick.txt";
+		String str2 = "stop-words.txt";
+		assertEquals("mobydick.txt file found", fo.fileNotfound(str1));
+		assertNotEquals("File Not found", fo.fileNotfound(str1));
+		assertEquals("mobydick.txt file found", fo.fileNotfound(str2));
+		assertNotEquals("File Not found", fo.fileNotfound(str2));
+	}
 	
 	@Test
 	public void setStopWordsList() throws FileNotFoundException
@@ -41,7 +52,6 @@ public class testoccurence {
 	public void frequentwords() throws FileNotFoundException {
 		
 		findOccurence fo = new findOccurence();
-		HashMap<String, Integer> hmap = fo.findfrequentwords();
 		assertNotEquals(null,fo.findfrequentwords());
 	}
 	

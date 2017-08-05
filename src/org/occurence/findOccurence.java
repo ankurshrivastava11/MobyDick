@@ -20,36 +20,38 @@ public class findOccurence {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	public int sizeofMap() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		ArrayList<String> stopwords = setstopwords();
-		HashMap<String, Integer> hmap = new HashMap<>();
-		File file = new File("mobydick.txt");
-		Scanner sc = new Scanner(file);
-		StringBuilder sb = new StringBuilder();
-		while (sc.hasNext()) {
-			String str = sc.next().replaceAll("[^\\w\\s]", "");
-			sb.append(str + " ");
-		}
-		System.out.println(sb.toString().trim());
-		String[] wordList = sb.toString().split(" ");
-		for (int i = 0; i < wordList.length; i++) {
-			if (!stopwords.contains(wordList[i])) {
-				if (hmap.containsKey(wordList[i])) {
-					int value = hmap.get(wordList[i]);
-					hmap.put(wordList[i], value + 1);
-				} else {
-					hmap.put(wordList[i], 1);
-				}
-			}
-		}
-		System.out.println("idher");
+//		ArrayList<String> stopwords = setstopwords();
+//		HashMap<String, Integer> hmap = new HashMap<>();
+//		File file = new File("mobydick.txt");
+//		Scanner sc = new Scanner(file);
+//		StringBuilder sb = new StringBuilder();
+//		while (sc.hasNext()) {
+//			String str = sc.next().replaceAll("[^\\w\\s]", "");
+//			sb.append(str + " ");
+//		}
+//		String[] wordList = sb.toString().trim().split(" ");
+//		for (int i = 0; i < wordList.length; i++) {
+//			if (!stopwords.contains(wordList[i])) {
+//				if (hmap.containsKey(wordList[i])) {
+//					int value = hmap.get(wordList[i]);
+//					hmap.put(wordList[i], value + 1);
+//				} else {
+//					hmap.put(wordList[i], 1);
+//				}
+//			}
+//		}
+		HashMap<String, Integer> hmap = findfrequentwords();
 		ArrayList map = entriesSortedByValues(hmap);
 		int lenthofmap = 0;
-		for(int i = 0; i <100; i++)
-		{
-		System.out.println(map.get(i));
-		lenthofmap++;
+		for (int i = 0; i < 100; i++) {
+			System.out.println(map.get(i));
+			lenthofmap++;
 		}
 		return lenthofmap;
 
@@ -57,8 +59,12 @@ public class findOccurence {
 
 	public ArrayList<String> setstopwords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		File file = new File("stop-words.txt");
-		Scanner sc = new Scanner(file);
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File("stop-words.txt"));
+		} catch (FileNotFoundException s) {
+			System.out.println("File does Not Exist Please Try Again: ");
+		}
 		ArrayList<String> list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNextLine()) {
@@ -68,7 +74,7 @@ public class findOccurence {
 		int start = sb.indexOf("a", lastindex);
 		int end = sb.lastIndexOf("z");
 		String str = sb.toString().substring(start, end);
-		String[] stopwords = str.split(" ");
+		String[] stopwords = str.trim().split(" ");
 		for (int i = 0; i < stopwords.length; i++) {
 			if (stopwords[i].length() != 1)
 				list.add(stopwords[i]);
@@ -81,8 +87,12 @@ public class findOccurence {
 		// TODO Auto-generated method stub
 		ArrayList<String> stopwords = setstopwords();
 		HashMap<String, Integer> hmap = new HashMap<>();
-		File file = new File("mobydick.txt");
-		Scanner sc = new Scanner(file);
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File("mobydick.txt"));
+		} catch (FileNotFoundException s) {
+			System.out.println("File does Not Exist Please Try Again: ");
+		}
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
 			String str = sc.next().replaceAll("[^\\w\\s]", "");
@@ -100,9 +110,8 @@ public class findOccurence {
 			}
 		}
 		ArrayList map = entriesSortedByValues(hmap);
-		for(int i = 0; i <100; i++)
-		{
-		System.out.println(map.get(i));
+		for (int i = 0; i < 100; i++) {
+			System.out.println(map.get(i));
 		}
 		return hmap;
 	}
@@ -119,6 +128,11 @@ public class findOccurence {
 		});
 
 		return sortedEntries;
+	}
+
+	public String fileNotfound(String str1) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
