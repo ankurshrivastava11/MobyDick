@@ -30,7 +30,7 @@ public class findOccurence {
 			sc = new Scanner(new File(str));
 		} catch (FileNotFoundException s) {
 
-			System.out.println("File does Not Exist Please Try Again: ");
+			System.out.println("File does Not Exist.");
 			message = "File Not found";
 			return message;
 		}
@@ -54,13 +54,14 @@ public class findOccurence {
 	 */
 	public ArrayList<String> setstopwords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
+		ArrayList<String> list = new ArrayList<>();
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File("stop-words.txt"));
 		} catch (FileNotFoundException s) {
-			System.out.println("File does Not Exist Please Try Again: ");
+			System.out.println("File does Not Exist.");
+			return list;
 		}
-		ArrayList<String> list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNextLine()) {
 			sb.append(sc.next() + " ");
@@ -91,7 +92,7 @@ public class findOccurence {
 		try {
 			sc = new Scanner(new File("mobydick.txt"));
 		} catch (FileNotFoundException s) {
-			System.out.println("File does Not Exist Please Try Again: ");
+			System.out.println("File does Not Exist.");
 		}
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
