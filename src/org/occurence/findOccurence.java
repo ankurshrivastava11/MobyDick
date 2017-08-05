@@ -30,7 +30,7 @@ public class findOccurence {
 			sc = new Scanner(new File(str));
 		} catch (FileNotFoundException s) {
 
-			System.out.println("File does Not Exist.");
+			System.out.println("File Not found Exception.");
 			message = "File Not found";
 			return message;
 		}
@@ -59,7 +59,7 @@ public class findOccurence {
 		try {
 			sc = new Scanner(new File("stop-words.txt"));
 		} catch (FileNotFoundException s) {
-			System.out.println("File does Not Exist.");
+			System.out.println("File Not found Exception.");
 			return list;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -92,7 +92,7 @@ public class findOccurence {
 		try {
 			sc = new Scanner(new File("mobydick.txt"));
 		} catch (FileNotFoundException s) {
-			System.out.println("File does Not Exist.");
+			System.out.println("File Not found Exception.");
 		}
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNext()) {
@@ -140,7 +140,21 @@ public class findOccurence {
 	}
 
 	public ArrayList<String> diplayFrequentwords() throws FileNotFoundException {
-		return null;
+		ArrayList<Entry<String, Integer>> result = new ArrayList<>();
+		result = findfrequentwords();
+		ArrayList<String> list = new ArrayList<>();
+		int count = 1;
+		System.out.println("\n" + "List of 100 most frequent words with the count of their occurrence:" + "\n");
+		for (Object o : result) {
+			String str = o.toString();
+			int index = str.indexOf("=");
+			String res = count++ + ". " + "'" + str.substring(0, index) + "' word occurred "
+					+ str.substring(index + 1, str.length()) + " times";
+			list.add(res);
+			System.out.println(res);
+
+		}
+		return list;
 
 	}
 

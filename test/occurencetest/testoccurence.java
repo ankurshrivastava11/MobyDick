@@ -14,6 +14,14 @@ import org.occurence.findOccurence;
 public class testoccurence {
 	
 	@Test
+	public void displayFrequentwords() throws FileNotFoundException{
+		findOccurence fo = new findOccurence();
+		ArrayList<String> list = fo.diplayFrequentwords();
+		assertEquals(100,list.size());
+		assertNotEquals(null, list);
+	}
+	
+	@Test
 	public void filenotfound() throws FileNotFoundException {
 		
 		findOccurence fo = new findOccurence();
@@ -60,14 +68,5 @@ public class testoccurence {
 		findOccurence fo = new findOccurence();
 		assertNotEquals(null,fo.findfrequentwords());
 	}
-	
-	@Test
-	public void displayFrequentwords() throws FileNotFoundException{
-		findOccurence fo = new findOccurence();
-		ArrayList<String> list = fo.diplayFrequentwords();
-		assertEquals(100,list.size());
-		assertNotEquals(null, list);
-	}
-	
 
 }

@@ -30,4 +30,13 @@ Run the Project:
   - After Successful installation, restart the eclipse and navigate to test/occurencetest/testoccurence.java.
   - Right click on the file and choose Coverage as - jUnit Test.
   - After completion, check the result in the coverage tab.
+  
+  
+ jUnit:
+ <p><img src="/images/jUnit.png" width="350"/></p>
+ 
+ 
+ coverage:
+ <p><img src="/images/coverage.png" width="350"/></p>
+ 
  
