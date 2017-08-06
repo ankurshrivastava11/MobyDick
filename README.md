@@ -151,13 +151,17 @@ EclEmma Java Code Coverage 3.0.0 <br />
 File Not found Exception.<br />
 File Not found Exception.<br />
 File Not found Exception.<br />
-File Not found Exception.<br />
+File Not found Exception.
 
+<br />
  <b>License:</b>
+ <br />
  ankurshrivastava11/MobyDick is licensed under the
  MIT License
  
+ <br />
  <b>Author:</b>
+ <br />
  <a href = "https://github.com/ankurshrivastava11"/>Ankur Shrivastava
 
  
