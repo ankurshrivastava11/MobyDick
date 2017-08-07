@@ -39,8 +39,8 @@ public class FindOccurenceWords {
 	 */
 	public int sizeOfMap() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		ArrayList<Entry<String, Integer>> list = findFrequentWords();
-		return list.size();
+		ArrayList<Entry<String, Integer>> frequentWordsList = findFrequentWords();
+		return frequentWordsList.size();
 
 	}
 
@@ -50,13 +50,13 @@ public class FindOccurenceWords {
 	 */
 	public ArrayList<String> setStopWords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		ArrayList<String> list = new ArrayList<>();
+		ArrayList<String> stopWordsList = new ArrayList<>();
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File("stop-words.txt"));
 		} catch (FileNotFoundException s) {
 			System.out.println("File Not found Exception.");
-			return list;
+			return stopWordsList;
 		}
 		StringBuilder sb = new StringBuilder();
 		while (sc.hasNextLine()) {
@@ -69,9 +69,9 @@ public class FindOccurenceWords {
 		String[] stopwords = str.trim().split(" ");
 		for (int i = 0; i < stopwords.length; i++) {
 			if (stopwords[i].length() != 1)
-				list.add(stopwords[i]);
+				stopWordsList.add(stopwords[i]);
 		}
-		return list;
+		return stopWordsList;
 
 	}
 
@@ -83,7 +83,7 @@ public class FindOccurenceWords {
 	public ArrayList<Entry<String, Integer>> findFrequentWords() throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		ArrayList<String> stopwords = setStopWords();
-		HashMap<String, Integer> hmap = new HashMap<>();
+		HashMap<String, Integer> frequentWordsMap = new HashMap<>();
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File("mobydick.txt"));
@@ -98,22 +98,22 @@ public class FindOccurenceWords {
 		String[] wordList = sb.toString().split(" ");
 		for (int i = 0; i < wordList.length; i++) {
 			if (!stopwords.contains(wordList[i])) {
-				if (hmap.containsKey(wordList[i])) {
-					int value = hmap.get(wordList[i]);
-					hmap.put(wordList[i], value + 1);
+				if (frequentWordsMap.containsKey(wordList[i])) {
+					int value = frequentWordsMap.get(wordList[i]);
+					frequentWordsMap.put(wordList[i], value + 1);
 				} else {
-					hmap.put(wordList[i], 1);
+					frequentWordsMap.put(wordList[i], 1);
 				}
 			}
 		}
-		ArrayList<Entry<String, Integer>> list = entriesSortedByValues(hmap);
-		ArrayList<Entry<String, Integer>> result = new ArrayList<Entry<String, Integer>>();
+		ArrayList<Entry<String, Integer>> list = entriesSortedByValues(frequentWordsMap);
+		ArrayList<Entry<String, Integer>> frquentWordsList = new ArrayList<Entry<String, Integer>>();
 
 		for (int i = 0; i < 100; i++) {
 			// System.out.println(list.get(i));
-			result.add(list.get(i));
+			frquentWordsList.add(list.get(i));
 		}
-		return result;
+		return frquentWordsList;
 	}
 
 	/**
@@ -136,21 +136,21 @@ public class FindOccurenceWords {
 	}
 
 	public ArrayList<String> diplayFrequentWords() throws FileNotFoundException {
-		ArrayList<Entry<String, Integer>> result = new ArrayList<>();
-		result = findFrequentWords();
-		ArrayList<String> list = new ArrayList<>();
+		ArrayList<Entry<String, Integer>> frequentWordsList = new ArrayList<>();
+		frequentWordsList = findFrequentWords();
+		ArrayList<String> topFrequwntWordsList = new ArrayList<>();
 		int count = 1;
 		System.out.println("\n" + "List of 100 most frequent words with the count of their occurrence:" + "\n");
-		for (Object o : result) {
+		for (Object o : frequentWordsList) {
 			String str = o.toString();
 			int index = str.indexOf("=");
 			String res = count++ + ". " + "'" + str.substring(0, index) + "' word occurred "
 					+ str.substring(index + 1, str.length()) + " times";
-			list.add(res);
+			topFrequwntWordsList.add(res);
 			System.out.println(res);
 
 		}
-		return list;
+		return topFrequwntWordsList;
 
 	}
 

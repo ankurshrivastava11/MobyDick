@@ -8,14 +8,19 @@ import java.util.ArrayList;
 import org.junit.Test;
 import org.occurence.FindOccurenceWords;
 
+/**
+ * @author ankurshrivastava
+ * Test File for FindOccurenceWords.java
+ *
+ */
 public class TestFindOccurence {
 
 	@Test
 	public void displayFrequentWords() throws FileNotFoundException{
 		FindOccurenceWords fo = new FindOccurenceWords();
-		ArrayList<String> list = fo.diplayFrequentWords();
-		assertEquals(100,list.size());
-		assertNotEquals(null, list);
+		ArrayList<String> frequentWordsList = fo.diplayFrequentWords();
+		assertEquals(100,frequentWordsList.size());
+		assertNotEquals(null, frequentWordsList);
 	}
 	
 	@Test
@@ -47,16 +52,16 @@ public class TestFindOccurence {
 	public void setStopWordsList() throws FileNotFoundException
 	{
 		FindOccurenceWords fo = new FindOccurenceWords();
-		ArrayList<String> list = fo.setStopWords();
-		assertNotEquals(null, list);
+		ArrayList<String> stopWordsList = fo.setStopWords();
+		assertNotEquals(null, stopWordsList);
 	}
 
 	@Test
 	public void mapSize() throws FileNotFoundException {
 		
 		FindOccurenceWords fo = new FindOccurenceWords();
-		int length = fo.sizeOfMap();
-		assertEquals(100,length);
+		int maplength = fo.sizeOfMap();
+		assertEquals(100,maplength);
 	}
 	
 	@Test
